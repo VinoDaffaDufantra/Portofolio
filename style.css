@@ -339,10 +339,13 @@ body {
     margin-top: 5px;
 }
 
+/* 🛠️ PERUBAHAN UTAMA: MENGGUNAKAN FLEX UNTUK SEJAJAR HORIZONTAL DAN TENGAN */
 .contact-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px 40px;
+    display: flex; /* Mengubah dari grid ke flexbox */
+    flex-wrap: wrap; 
+    justify-content: center; /* Memposisikan item di TENGAH horizontal */
+    align-items: center;
+    gap: 20px 30px; /* Jarak antara setiap tombol */
     margin-top: 50px;
     font-size: 14px;
     text-align: left;
@@ -350,12 +353,13 @@ body {
 
 .contact-item {
     align-items: center; 
+    max-width: 300px; 
 }
 
 /* Gaya Dasar Tautan Kontak (Button-like) */
 .contact-item a {
     display: flex;
-    align-items: center;
+    align-items: center; /* MEMASTIKAN IKON DAN TEKS SEJAJAR VERTIKAL */
     color: #fff; 
     text-decoration: none;
     padding: 10px 15px; 
@@ -368,16 +372,15 @@ body {
 /* Animasi Dasar Hover */
 .contact-item a:hover {
     transform: translateY(-3px) scale(1.02); 
-    /* Box-shadow default dihilangkan agar cahaya warna merek lebih menonjol */
 }
 
-/* 🛠️ TAMBAHAN UTAMA: Gaya untuk gambar neon */
+/* 🛠️ Gaya untuk gambar neon */
 .neon-icon {
-    width: 30px; /* Ukuran ikon */
+    width: 30px; 
     height: 30px;
     margin-right: 10px;
-    object-fit: contain; /* Agar gambar tidak terdistorsi */
-    transition: transform 0.3s ease; /* Transisi untuk efek hover */
+    object-fit: contain; 
+    transition: transform 0.3s ease; 
 }
 
 
@@ -387,7 +390,7 @@ body {
 }
 
 /* =================================================== */
-/* 🛠️ PERUBAHAN UTAMA: WARNA HOVER SPESIFIK & GLOW */
+/* WARNA HOVER SPESIFIK & GLOW (Didasarkan pada urutan baru: WA, IG, Email) */
 /* =================================================== */
 
 /* 1. WhatsApp (nth-child(1)) - Hijau & Glow Hijau */
@@ -395,42 +398,38 @@ body {
     color: #25D366; 
     border-color: #25D366;
     background-color: rgba(37, 211, 102, 0.1); 
-    /* Efek Cahaya Hijau */
-    box-shadow: 0 0 10px 3px rgba(37, 211, 102, 0.5), /* Cahaya fokus */
-                0 0 20px 5px rgba(37, 211, 102, 0.3); /* Cahaya menyebar */
+    box-shadow: 0 0 10px 3px rgba(37, 211, 102, 0.5),
+                0 0 20px 5px rgba(37, 211, 102, 0.3);
 }
 
 .contact-item:nth-child(1) a:hover .neon-icon {
-    transform: scale(1.1); /* Sedikit membesar saat di hover */
+    transform: scale(1.1);
 }
 
-/* 2. Email (nth-child(2)) - Biru & Glow Biru */
+/* 2. Instagram (nth-child(2)) - Merah Keunguan/Ungu & Glow Ungu */
 .contact-item:nth-child(2) a:hover {
-    color: #0078D4; 
-    border-color: #0078D4;
-    background-color: rgba(0, 120, 212, 0.1); 
-    /* Efek Cahaya Biru */
-    box-shadow: 0 0 10px 3px rgba(0, 120, 212, 0.5), /* Cahaya fokus */
-                0 0 20px 5px rgba(0, 120, 212, 0.3); /* Cahaya menyebar */
+    color: #C13584; 
+    border-color: #C13584;
+    background: linear-gradient(45deg, rgba(253, 29, 29, 0.1), rgba(193, 53, 132, 0.1));
+    box-shadow: 0 0 10px 3px rgba(225, 48, 108, 0.5), 
+                0 0 20px 5px rgba(225, 48, 108, 0.3);
 }
 
 .contact-item:nth-child(2) a:hover .neon-icon {
-    transform: scale(1.1); /* Sedikit membesar saat di hover */
+    transform: scale(1.1);
 }
 
-/* 3. Instagram (nth-child(3)) - Merah Keunguan/Ungu & Glow Ungu */
+/* 3. Email (nth-child(3)) - Biru & Glow Biru */
 .contact-item:nth-child(3) a:hover {
-    color: #C13584; 
-    border-color: #C13584;
-    /* Menggunakan Background Gradient untuk efek khas Instagram */
-    background: linear-gradient(45deg, rgba(253, 29, 29, 0.1), rgba(193, 53, 132, 0.1));
-    /* Efek Cahaya Merah Keunguan (Warna Khas IG) */
-    box-shadow: 0 0 10px 3px rgba(225, 48, 108, 0.5), /* Cahaya fokus (Pink keunguan) */
-                0 0 20px 5px rgba(225, 48, 108, 0.3); /* Cahaya menyebar */
+    color: #0078D4; 
+    border-color: #0078D4;
+    background-color: rgba(0, 120, 212, 0.1); 
+    box-shadow: 0 0 10px 3px rgba(0, 120, 212, 0.5), 
+                0 0 20px 5px rgba(0, 120, 212, 0.3); 
 }
 
 .contact-item:nth-child(3) a:hover .neon-icon {
-    transform: scale(1.1); /* Sedikit membesar saat di hover */
+    transform: scale(1.1);
 }
 
 
@@ -482,7 +481,6 @@ body {
     }
 
     .page {
-        /* Padding atas dikurangi agar konten mepet ke atas saat di-scroll/di-klik. */
         padding: 20px 20px;
         min-height: 100vh;
         height: auto; 
@@ -549,7 +547,6 @@ body {
 
     /* --- Halaman 2: Tentang Saya & Pengalaman (MOBILE) --- */
     .about-page {
-        /* Memastikan tidak ada padding tambahan di dalam page content */
         padding-top: 0; 
     }
     
@@ -663,13 +660,14 @@ body {
     }
 
     .contact-info {
-        grid-template-columns: 1fr;
+        /* Memaksa item kontak menjadi tumpukan di mobile */
+        flex-direction: column; 
         gap: 15px 0;
-        text-align: center;
     }
 
     .contact-item a {
         justify-content: center; 
+        width: 250px; /* Lebar tombol seragam di mobile */
     }
     
     /* Hapus animasi dan warna hover spesifik untuk mobile */
@@ -685,9 +683,9 @@ body {
         background: none;
     }
     
-    /* Tambahkan gaya untuk ikon neon di mobile */
+    /* Hilangkan scaling hover di mobile */
     .contact-item .neon-icon {
-        transform: none; /* Hilangkan scaling hover di mobile */
+        transform: none;
     }
 }
 /* --- style.css end --- */
