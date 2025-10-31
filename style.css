@@ -419,35 +419,28 @@ body {
 
     /* --- Halaman 1: Header (Portofolio) --- */
     .header-page {
-        /* Mengubah header agar elemen-elemennya di-center secara horizontal */
         justify-content: flex-start;
-        /* 🛠️ PERUBAHAN: Mengurangi padding-top agar tidak terlalu jauh */
-        padding-top: 60px; /* Diturunkan dari 100px */
-        text-align: center; /* Teks di tengah */
+        /* 🛠️ PERUBAHAN UTAMA: Mengurangi padding-top lebih agresif */
+        padding-top: 40px; /* Diturunkan dari 60px ke 40px */
+        text-align: center;
     }
     
     .profile-picture-header {
-        /* FOTO PROFIL DI TENGAH (Perubahan utama) */
-        position: static; /* Hilangkan posisi absolut */
-        margin: 0 auto 10px auto; /* Mengurangi margin bawah dari 30px ke 10px */
-        
-        /* Ukuran dan styling tetap */
-        width: 120px; /* Diperbesar sedikit */
-        height: 120px; /* Diperbesar sedikit */
+        position: static;
+        margin: 0 auto 5px auto; /* Mengurangi margin bawah dari 10px ke 5px */
+        width: 120px;
+        height: 120px;
         border: 3px solid rgba(120, 120, 120, 0.8);
         box-shadow: 0 0 0 6px rgba(80, 80, 80, 0.6);
-        
-        /* Hapus properti posisi lama */
         top: auto;
         left: auto;
     }
     
     .header-content {
-        /* Konten header (teks) diposisikan di tengah */
         width: 100%;
-        margin-left: 0; /* Hapus margin-left yang dibuat untuk desktop */
-        /* 🛠️ PERUBAHAN: Mengurangi margin-bottom agar konten naik */
-        margin-bottom: 20px; /* Diturunkan dari 50px ke 20px */
+        margin-left: 0;
+        /* 🛠️ PERUBAHAN UTAMA: Mengurangi margin-bottom lebih agresif */
+        margin-bottom: 10px; /* Diturunkan dari 20px ke 10px */
         padding-top: 0;
         z-index: 1;
         position: relative;
@@ -458,9 +451,8 @@ body {
     }
 
     .header-image-placeholder {
-        /* Memastikan placeholder gambar background tidak menyebabkan scroll berlebihan */
         width: 100%;
-        height: 30%; /* Diturunkan dari 40% agar halaman lebih pendek */
+        height: 20%; /* Diturunkan dari 30% agar halaman lebih pendek */
         right: 0;
         bottom: 0;
         opacity: 0.3;
@@ -469,8 +461,8 @@ body {
 
     /* --- Halaman 2: Tentang Saya & Pengalaman --- */
     .about-page {
-        /* 🛠️ PERUBAHAN: Padding atas sedikit dikurangi untuk mengurangi jarak total antar halaman */
-        padding-top: 30px; /* Diturunkan dari 50px */
+        /* 🛠️ PERUBAHAN UTAMA: Padding atas dikurangi seminimal mungkin */
+        padding-top: 10px; /* Diturunkan dari 30px ke 10px */
     }
     
     .about-content {
@@ -482,11 +474,11 @@ body {
     .about-text-container,
     .experience-container {
         width: 100%; 
-        margin: 15px 0; /* Mengurangi margin vertikal */
-        padding-top: 15px; /* Mengurangi padding vertikal */
+        margin: 25px 0;
+        padding-top: 15px; 
     }
     
-    /* Urutan mobile (sesuai permintaan sebelumnya: Foto, Tentang Saya, Pengalaman) */
+    /* Urutan mobile (Foto, Tentang Saya, Pengalaman) */
     .about-text-container {
         order: 2; 
     }
@@ -494,7 +486,7 @@ body {
     .profile-photo {
         width: 150px;
         height: 150px;
-        margin: 15px 0; /* Mengurangi margin vertikal */
+        margin: 15px 0;
         order: 1; 
     }
     
