@@ -77,12 +77,21 @@ body {
     letter-spacing: 1px;
 }
 
-/* Halaman 1: Header */
+/* Halaman 1: Header (DEKSTOP) */
+.header-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px; 
+    text-align: center; 
+}
+
 /* Styling untuk Foto Profil di Header */
 .profile-picture-header {
-    position: absolute; 
-    top: 50px; 
-    left: 80px; 
+    position: relative; 
+    top: auto; 
+    left: auto; 
     width: 150px;
     height: 150px;
     border-radius: 50%; 
@@ -90,6 +99,7 @@ body {
     z-index: 2; 
     border: 5px solid rgba(120, 120, 120, 0.8); 
     box-shadow: 0 0 0 10px rgba(80, 80, 80, 0.6); 
+    margin-bottom: 30px; 
 }
 
 .profile-picture-header img {
@@ -99,18 +109,12 @@ body {
     display: block;
 }
 
-.header-page {
-    justify-content: flex-start;
-    padding-top: 200px; 
-    text-align: left;
-}
-
 .header-content {
     z-index: 1;
     position: relative;
     margin-bottom: 50px;
-    margin-left: 200px; /* Jarak agar tidak tertutup foto profil */
-    padding-top: 50px;
+    margin-left: 0; 
+    padding-top: 0; 
 }
 
 .header-content h1 {
@@ -143,14 +147,15 @@ body {
     opacity: 0.8;
 }
 
-/* Halaman 2: Tentang Saya & Pengalaman */
+/* Halaman 2: Tentang Saya & Pengalaman (DEKSTOP) */
 .about-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: left;
-    padding: 50px 80px;
+    /* Padding atas dikurangi agar mepet ke atas */
+    padding: 20px 80px; 
 }
 
 .about-content {
@@ -375,13 +380,6 @@ body {
     transition: transform 0.3s ease; /* Transisi untuk efek hover */
 }
 
-/* 🛠️ PENGHAPUSAN/MODIFIKASI: Hapus gaya ikon lama */
-/* .contact-item .icon {
-    font-size: 20px;
-    margin-right: 10px;
-    transition: color 0.3s ease; 
-    display: none; // Bisa ditambahkan untuk memastikan ikon lama hilang
-} */
 
 .contact-item a p {
     margin: 0;
@@ -401,10 +399,7 @@ body {
     box-shadow: 0 0 10px 3px rgba(37, 211, 102, 0.5), /* Cahaya fokus */
                 0 0 20px 5px rgba(37, 211, 102, 0.3); /* Cahaya menyebar */
 }
-/* 🛠️ Hapus/modifikasi penargetan ikon lama */
-/* .contact-item:nth-child(1) a:hover .icon {
-    color: #25D366;
-} */
+
 .contact-item:nth-child(1) a:hover .neon-icon {
     transform: scale(1.1); /* Sedikit membesar saat di hover */
 }
@@ -418,10 +413,7 @@ body {
     box-shadow: 0 0 10px 3px rgba(0, 120, 212, 0.5), /* Cahaya fokus */
                 0 0 20px 5px rgba(0, 120, 212, 0.3); /* Cahaya menyebar */
 }
-/* 🛠️ Hapus/modifikasi penargetan ikon lama */
-/* .contact-item:nth-child(2) a:hover .icon {
-    color: #0078D4;
-} */
+
 .contact-item:nth-child(2) a:hover .neon-icon {
     transform: scale(1.1); /* Sedikit membesar saat di hover */
 }
@@ -436,10 +428,7 @@ body {
     box-shadow: 0 0 10px 3px rgba(225, 48, 108, 0.5), /* Cahaya fokus (Pink keunguan) */
                 0 0 20px 5px rgba(225, 48, 108, 0.3); /* Cahaya menyebar */
 }
-/* 🛠️ Hapus/modifikasi penargetan ikon lama */
-/* .contact-item:nth-child(3) a:hover .icon {
-    color: #C13584;
-} */
+
 .contact-item:nth-child(3) a:hover .neon-icon {
     transform: scale(1.1); /* Sedikit membesar saat di hover */
 }
@@ -487,13 +476,14 @@ body {
 
 /* === TATA LETAK UMUM (Mobile/Small Screens) === */
 @media (max-width: 768px) {
-    /* (Bagian Media Query tetap sama seperti sebelumnya, tanpa efek 3D dan cahaya untuk mobile) */
+    
     html {
         scroll-behavior: smooth; 
     }
 
     .page {
-        padding: 50px 20px;
+        /* Padding atas dikurangi agar konten mepet ke atas saat di-scroll/di-klik. */
+        padding: 20px 20px;
         min-height: 100vh;
         height: auto; 
     }
@@ -557,9 +547,10 @@ body {
     }
 
 
-    /* --- Halaman 2: Tentang Saya & Pengalaman --- */
+    /* --- Halaman 2: Tentang Saya & Pengalaman (MOBILE) --- */
     .about-page {
-        padding-top: 10px; 
+        /* Memastikan tidak ada padding tambahan di dalam page content */
+        padding-top: 0; 
     }
     
     .about-content {
@@ -693,12 +684,7 @@ body {
         border-color: rgba(255, 255, 255, 0.2);
         background: none;
     }
-    /* 🛠️ Hapus penargetan ikon lama di mobile */
-    /* .contact-item:nth-child(1) a:hover .icon,
-    .contact-item:nth-child(2) a:hover .icon,
-    .contact-item:nth-child(3) a:hover .icon {
-        color: #fff;
-    } */
+    
     /* Tambahkan gaya untuk ikon neon di mobile */
     .contact-item .neon-icon {
         transform: none; /* Hilangkan scaling hover di mobile */
