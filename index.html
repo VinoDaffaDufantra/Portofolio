@@ -23,6 +23,7 @@
             
             <div class="profile-picture-header">
                 <img src="gambar/unnamed.jpg" alt="Foto Profil Vino Daffa"> 
+                <span class="glow-reverse"></span> 
             </div>
             
             <div class="header-content">
@@ -131,6 +132,42 @@
             </div>
         </section>
     </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('.page');
+        const navLinks = document.querySelectorAll('.navbar a');
+
+        function updateSelectedLink() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - sectionHeight / 3) { 
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('selected');
+            });
+
+            navLinks.forEach(a => {
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('selected');
+                }
+            });
+            
+            if (window.scrollY < 50) { 
+                document.querySelector('.navbar a[href="#portofolio"]').classList.add('selected');
+            }
+        }
+
+        window.addEventListener('scroll', updateSelectedLink);
+        updateSelectedLink(); 
+    });
+</script>
 
 </body>
 </html>
