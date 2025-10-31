@@ -224,7 +224,6 @@ body {
 .works-page {
     display: flex;
     flex-direction: row;
-    /* Membuat seluruh konten works-page di tengah */
     justify-content: center; 
     align-items: center;
     text-align: left;
@@ -232,11 +231,10 @@ body {
 }
 
 .works-title-container {
-    /* Lebar otomatis dan margin dihilangkan */
     width: auto;
-    margin-right: 20px; /* Jarak sedikit dari galeri */
+    margin-right: 20px; 
     position: relative;
-    padding-top: 50px; /* Agar judul sejajar dengan galeri */
+    padding-top: 50px; 
 }
 
 .works-title-container .title {
@@ -259,22 +257,28 @@ body {
     gap: 20px;
     align-items: center;
     justify-content: center;
-    /* Lebar otomatis */
     width: auto; 
 }
 
 .work-item {
     text-align: center;
+    perspective: 1000px; 
+    transform-style: preserve-3d; 
+    position: relative; 
 }
 
 /* Modifikasi: Gambar Landscape */
 .work-item img {
-    width: 350px; /* Lebar lebih besar */
-    height: 250px; /* Tinggi lebih kecil */
+    width: 350px; 
+    height: 250px; 
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease; 
+    transform: rotateY(-5deg) rotateX(5deg); 
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), 
+                -5px -5px 10px rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 /* Efek Hover untuk menunjukkan gambar dapat diklik */
@@ -284,9 +288,12 @@ body {
 }
 
 .work-item img:hover {
-    opacity: 0.8; 
-    transform: scale(1.03); 
+    opacity: 1; 
+    transform: rotateY(0deg) rotateX(0deg) scale(1.05); 
     cursor: pointer; 
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7), 
+                0 0 30px 10px rgba(135, 206, 250, 0.5), 
+                0 15px 30px rgba(0, 0, 0, 0.6); 
 }
 
 .work-item p {
@@ -337,14 +344,106 @@ body {
 }
 
 .contact-item {
-    display: flex;
-    align-items: center;
+    align-items: center; 
 }
 
-.contact-item .icon {
+/* Gaya Dasar Tautan Kontak (Button-like) */
+.contact-item a {
+    display: flex;
+    align-items: center;
+    color: #fff; 
+    text-decoration: none;
+    padding: 10px 15px; 
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease; 
+    width: 100%; 
+}
+
+/* Animasi Dasar Hover */
+.contact-item a:hover {
+    transform: translateY(-3px) scale(1.02); 
+    /* Box-shadow default dihilangkan agar cahaya warna merek lebih menonjol */
+}
+
+/* 🛠️ TAMBAHAN UTAMA: Gaya untuk gambar neon */
+.neon-icon {
+    width: 30px; /* Ukuran ikon */
+    height: 30px;
+    margin-right: 10px;
+    object-fit: contain; /* Agar gambar tidak terdistorsi */
+    transition: transform 0.3s ease; /* Transisi untuk efek hover */
+}
+
+/* 🛠️ PENGHAPUSAN/MODIFIKASI: Hapus gaya ikon lama */
+/* .contact-item .icon {
     font-size: 20px;
     margin-right: 10px;
+    transition: color 0.3s ease; 
+    display: none; // Bisa ditambahkan untuk memastikan ikon lama hilang
+} */
+
+.contact-item a p {
+    margin: 0;
+    line-height: 1.5;
 }
+
+/* =================================================== */
+/* 🛠️ PERUBAHAN UTAMA: WARNA HOVER SPESIFIK & GLOW */
+/* =================================================== */
+
+/* 1. WhatsApp (nth-child(1)) - Hijau & Glow Hijau */
+.contact-item:nth-child(1) a:hover {
+    color: #25D366; 
+    border-color: #25D366;
+    background-color: rgba(37, 211, 102, 0.1); 
+    /* Efek Cahaya Hijau */
+    box-shadow: 0 0 10px 3px rgba(37, 211, 102, 0.5), /* Cahaya fokus */
+                0 0 20px 5px rgba(37, 211, 102, 0.3); /* Cahaya menyebar */
+}
+/* 🛠️ Hapus/modifikasi penargetan ikon lama */
+/* .contact-item:nth-child(1) a:hover .icon {
+    color: #25D366;
+} */
+.contact-item:nth-child(1) a:hover .neon-icon {
+    transform: scale(1.1); /* Sedikit membesar saat di hover */
+}
+
+/* 2. Email (nth-child(2)) - Biru & Glow Biru */
+.contact-item:nth-child(2) a:hover {
+    color: #0078D4; 
+    border-color: #0078D4;
+    background-color: rgba(0, 120, 212, 0.1); 
+    /* Efek Cahaya Biru */
+    box-shadow: 0 0 10px 3px rgba(0, 120, 212, 0.5), /* Cahaya fokus */
+                0 0 20px 5px rgba(0, 120, 212, 0.3); /* Cahaya menyebar */
+}
+/* 🛠️ Hapus/modifikasi penargetan ikon lama */
+/* .contact-item:nth-child(2) a:hover .icon {
+    color: #0078D4;
+} */
+.contact-item:nth-child(2) a:hover .neon-icon {
+    transform: scale(1.1); /* Sedikit membesar saat di hover */
+}
+
+/* 3. Instagram (nth-child(3)) - Merah Keunguan/Ungu & Glow Ungu */
+.contact-item:nth-child(3) a:hover {
+    color: #C13584; 
+    border-color: #C13584;
+    /* Menggunakan Background Gradient untuk efek khas Instagram */
+    background: linear-gradient(45deg, rgba(253, 29, 29, 0.1), rgba(193, 53, 132, 0.1));
+    /* Efek Cahaya Merah Keunguan (Warna Khas IG) */
+    box-shadow: 0 0 10px 3px rgba(225, 48, 108, 0.5), /* Cahaya fokus (Pink keunguan) */
+                0 0 20px 5px rgba(225, 48, 108, 0.3); /* Cahaya menyebar */
+}
+/* 🛠️ Hapus/modifikasi penargetan ikon lama */
+/* .contact-item:nth-child(3) a:hover .icon {
+    color: #C13584;
+} */
+.contact-item:nth-child(3) a:hover .neon-icon {
+    transform: scale(1.1); /* Sedikit membesar saat di hover */
+}
+
 
 .navbar-container {
     position: fixed; 
@@ -388,6 +487,7 @@ body {
 
 /* === TATA LETAK UMUM (Mobile/Small Screens) === */
 @media (max-width: 768px) {
+    /* (Bagian Media Query tetap sama seperti sebelumnya, tanpa efek 3D dan cahaya untuk mobile) */
     html {
         scroll-behavior: smooth; 
     }
@@ -420,14 +520,13 @@ body {
     /* --- Halaman 1: Header (Portofolio) --- */
     .header-page {
         justify-content: flex-start;
-        /* 🛠️ PERUBAHAN UTAMA: Mengurangi padding-top lebih agresif */
-        padding-top: 40px; /* Diturunkan dari 60px ke 40px */
+        padding-top: 40px; 
         text-align: center;
     }
     
     .profile-picture-header {
         position: static;
-        margin: 0 auto 5px auto; /* Mengurangi margin bawah dari 10px ke 5px */
+        margin: 0 auto 5px auto; 
         width: 120px;
         height: 120px;
         border: 3px solid rgba(120, 120, 120, 0.8);
@@ -439,8 +538,7 @@ body {
     .header-content {
         width: 100%;
         margin-left: 0;
-        /* 🛠️ PERUBAHAN UTAMA: Mengurangi margin-bottom lebih agresif */
-        margin-bottom: 10px; /* Diturunkan dari 20px ke 10px */
+        margin-bottom: 10px; 
         padding-top: 0;
         z-index: 1;
         position: relative;
@@ -452,7 +550,7 @@ body {
 
     .header-image-placeholder {
         width: 100%;
-        height: 20%; /* Diturunkan dari 30% agar halaman lebih pendek */
+        height: 20%; 
         right: 0;
         bottom: 0;
         opacity: 0.3;
@@ -461,8 +559,7 @@ body {
 
     /* --- Halaman 2: Tentang Saya & Pengalaman --- */
     .about-page {
-        /* 🛠️ PERUBAHAN UTAMA: Padding atas dikurangi seminimal mungkin */
-        padding-top: 10px; /* Diturunkan dari 30px ke 10px */
+        padding-top: 10px; 
     }
     
     .about-content {
@@ -516,7 +613,7 @@ body {
         margin-right: 0;
         margin-bottom: 30px;
         position: static;
-        padding-top: 0; /* Kembalikan ke 0 untuk mobile */
+        padding-top: 0; 
     }
     
     .works-title-container .title {
@@ -539,6 +636,8 @@ body {
     
     .work-item {
         margin: 10px 0;
+        perspective: none; 
+        transform-style: flat;
     }
     
     /* Modifikasi: Gambar Landscape untuk Mobile */
@@ -547,6 +646,14 @@ body {
         height: 180px; 
         max-width: 90%; 
         object-fit: cover;
+        transform: none; 
+        box-shadow: none; 
+        border: none;
+    }
+    /* Matikan efek hover 3D untuk mobile */
+    .work-item img:hover {
+        transform: scale(1.03); 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
     }
 
 
@@ -570,8 +677,31 @@ body {
         text-align: center;
     }
 
-    .contact-item {
-        justify-content: center;
+    .contact-item a {
+        justify-content: center; 
+    }
+    
+    /* Hapus animasi dan warna hover spesifik untuk mobile */
+    .contact-item a:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .contact-item:nth-child(1) a:hover,
+    .contact-item:nth-child(2) a:hover,
+    .contact-item:nth-child(3) a:hover {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.2);
+        background: none;
+    }
+    /* 🛠️ Hapus penargetan ikon lama di mobile */
+    /* .contact-item:nth-child(1) a:hover .icon,
+    .contact-item:nth-child(2) a:hover .icon,
+    .contact-item:nth-child(3) a:hover .icon {
+        color: #fff;
+    } */
+    /* Tambahkan gaya untuk ikon neon di mobile */
+    .contact-item .neon-icon {
+        transform: none; /* Hilangkan scaling hover di mobile */
     }
 }
 /* --- style.css end --- */
