@@ -1,691 +1,136 @@
-/* --- style.css start --- */
-html {
-    scroll-behavior: smooth;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    background-color: #0d0d0d;
-}
-
-/* Modifikasi: Background gradient diterapkan ke portfolio-container */
-.portfolio-container {
-    background: linear-gradient(135deg, #2c2c2c, #0d0d0d);
-    position: relative;
-    overflow: hidden;
-}
-
-.portfolio-container::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: -100px;
-    width: 250px;
-    height: 250px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: rotate(45deg);
-    z-index: 0;
-}
-
-.portfolio-container::after {
-    content: '';
-    position: absolute;
-    bottom: -100px;
-    right: -100px;
-    width: 250px;
-    height: 250px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: rotate(45deg);
-    z-index: 0;
-}
-
-.page {
-    width: 100%;
-    height: 100vh;
-    padding: 50px 80px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-}
-
-.small-title {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    opacity: 0.6;
-    text-align: right;
-    width: 100%;
-    position: absolute;
-    top: 50px;
-    right: 80px;
-}
-
-.title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-/* Halaman 1: Header (DEKSTOP) */
-.header-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 50px; 
-    text-align: center; 
-}
-
-/* Styling untuk Foto Profil di Header */
-.profile-picture-header {
-    position: relative; 
-    top: auto; 
-    left: auto; 
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; 
-    overflow: hidden; 
-    z-index: 2; 
-    border: 5px solid rgba(120, 120, 120, 0.8); 
-    box-shadow: 0 0 0 10px rgba(80, 80, 80, 0.6); 
-    margin-bottom: 30px; 
-}
-
-.profile-picture-header img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block;
-}
-
-.header-content {
-    z-index: 1;
-    position: relative;
-    margin-bottom: 50px;
-    margin-left: 0; 
-    padding-top: 0; 
-}
-
-.header-content h1 {
-    font-size: 80px;
-    line-height: 1;
-    font-weight: 700;
-}
-
-.header-content .name {
-    font-size: 16px;
-    display: block;
-    margin-top: 20px;
-    opacity: 0.8;
-}
-
-.header-content .job-title {
-    font-size: 12px;
-    display: block;
-    opacity: 0.6;
-}
-
-.header-image-placeholder {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 70%;
-    height: 60%;
-    background: url('https://via.placeholder.com/1200x800.png?text=Placeholder+Image+of+Office+Desk') no-repeat center center/cover;
-    z-index: 0;
-    opacity: 0.8;
-}
-
-/* Halaman 2: Tentang Saya & Pengalaman (DEKSTOP) */
-.about-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    /* Padding atas dikurangi agar mepet ke atas */
-    padding: 20px 80px; 
-}
-
-.about-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.about-text-container {
-    width: 30%;
-    margin-right: 20px;
-    position: relative;
-    padding-top: 50px;
-}
-
-.about-text-container .title {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-.about-text-container .name {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.about-text-container .bio {
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.8;
-}
-
-.profile-photo {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background: url('https://via.placeholder.com/250x250.png?text=Profile+Photo') no-repeat center center/cover;
-    margin: 0 40px;
-}
-
-.experience-container {
-    width: 30%;
-    position: relative;
-    padding-top: 50px;
-}
-
-.experience-container .title {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-.experience-container ul {
-    list-style: none;
-}
-
-.experience-container li {
-    margin-bottom: 15px;
-}
-
-.experience-container .exp-title {
-    font-weight: 600;
-}
-
-.experience-container .exp-role {
-    font-size: 12px;
-    opacity: 0.7;
-}
-
-/* Halaman 3: Hasil Karya */
-.works-page {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; 
-    align-items: center;
-    text-align: left;
-    padding: 50px 80px;
-}
-
-.works-title-container {
-    width: auto;
-    margin-right: 20px; 
-    position: relative;
-    padding-top: 50px; 
-}
-
-.works-title-container .title {
-    writing-mode: vertical-lr;
-    font-size: 48px;
-    margin-bottom: 10px;
-    transform: rotate(180deg);
-}
-
-.works-title-container .subtitle {
-    display: block;
-    margin-top: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    transform: rotate(180deg);
-}
-
-.works-gallery {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    width: auto; 
-}
-
-.work-item {
-    text-align: center;
-    perspective: 1000px; 
-    transform-style: preserve-3d; 
-    position: relative; 
-}
-
-/* Modifikasi: Gambar Landscape */
-.work-item img {
-    width: 350px; 
-    height: 250px; 
-    object-fit: cover;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    transition: all 0.5s ease; 
-    transform: rotateY(-5deg) rotateX(5deg); 
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), 
-                -5px -5px 10px rgba(255, 255, 255, 0.05); 
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-}
-
-/* Efek Hover untuk menunjukkan gambar dapat diklik */
-.work-item a {
-    text-decoration: none; 
-    display: block;
-}
-
-.work-item img:hover {
-    opacity: 1; 
-    transform: rotateY(0deg) rotateX(0deg) scale(1.05); 
-    cursor: pointer; 
-    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7), 
-                0 0 30px 10px rgba(135, 206, 250, 0.5), 
-                0 15px 30px rgba(0, 0, 0, 0.6); 
-}
-
-.work-item p {
-    font-size: 14px;
-    text-align: center;
-    font-weight: 500;
-}
-
-/* Halaman 4: Terima Kasih & Kontak */
-.thank-you-page {
-    justify-content: flex-start;
-    padding-top: 100px;
-}
-
-.thank-you-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.thank-you-content .small-title {
-    text-align: center;
-    position: static;
-    margin-bottom: 20px;
-}
-
-.thank-you-text {
-    font-size: 72px;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.lets-work {
-    font-size: 24px;
-    font-weight: 400;
-    opacity: 0.8;
-    margin-top: 5px;
-}
-
-/* 🛠️ PERUBAHAN UTAMA: MENGGUNAKAN FLEX UNTUK SEJAJAR HORIZONTAL DAN TENGAN */
-.contact-info {
-    display: flex; /* Mengubah dari grid ke flexbox */
-    flex-wrap: wrap; 
-    justify-content: center; /* Memposisikan item di TENGAH horizontal */
-    align-items: center;
-    gap: 20px 30px; /* Jarak antara setiap tombol */
-    margin-top: 50px;
-    font-size: 14px;
-    text-align: left;
-}
-
-.contact-item {
-    align-items: center; 
-    max-width: 300px; 
-}
-
-/* Gaya Dasar Tautan Kontak (Button-like) */
-.contact-item a {
-    display: flex;
-    align-items: center; /* MEMASTIKAN IKON DAN TEKS SEJAJAR VERTIKAL */
-    color: #fff; 
-    text-decoration: none;
-    padding: 10px 15px; 
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease; 
-    width: 100%; 
-}
-
-/* Animasi Dasar Hover */
-.contact-item a:hover {
-    transform: translateY(-3px) scale(1.02); 
-}
-
-/* 🛠️ Gaya untuk gambar neon */
-.neon-icon {
-    width: 30px; 
-    height: 30px;
-    margin-right: 10px;
-    object-fit: contain; 
-    transition: transform 0.3s ease; 
-}
-
-
-.contact-item a p {
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* =================================================== */
-/* WARNA HOVER SPESIFIK & GLOW (Didasarkan pada urutan baru: WA, IG, Email) */
-/* =================================================== */
-
-/* 1. WhatsApp (nth-child(1)) - Hijau & Glow Hijau */
-.contact-item:nth-child(1) a:hover {
-    color: #25D366; 
-    border-color: #25D366;
-    background-color: rgba(37, 211, 102, 0.1); 
-    box-shadow: 0 0 10px 3px rgba(37, 211, 102, 0.5),
-                0 0 20px 5px rgba(37, 211, 102, 0.3);
-}
-
-.contact-item:nth-child(1) a:hover .neon-icon {
-    transform: scale(1.1);
-}
-
-/* 2. Instagram (nth-child(2)) - Merah Keunguan/Ungu & Glow Ungu */
-.contact-item:nth-child(2) a:hover {
-    color: #C13584; 
-    border-color: #C13584;
-    background: linear-gradient(45deg, rgba(253, 29, 29, 0.1), rgba(193, 53, 132, 0.1));
-    box-shadow: 0 0 10px 3px rgba(225, 48, 108, 0.5), 
-                0 0 20px 5px rgba(225, 48, 108, 0.3);
-}
-
-.contact-item:nth-child(2) a:hover .neon-icon {
-    transform: scale(1.1);
-}
-
-/* 3. Email (nth-child(3)) - Biru & Glow Biru */
-.contact-item:nth-child(3) a:hover {
-    color: #0078D4; 
-    border-color: #0078D4;
-    background-color: rgba(0, 120, 212, 0.1); 
-    box-shadow: 0 0 10px 3px rgba(0, 120, 212, 0.5), 
-                0 0 20px 5px rgba(0, 120, 212, 0.3); 
-}
-
-.contact-item:nth-child(3) a:hover .neon-icon {
-    transform: scale(1.1);
-}
-
-
-.navbar-container {
-    position: fixed; 
-    bottom: 25px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    background-color: rgba(40, 40, 40, 0.6); 
-    border-radius: 50px; 
-    padding: 8px; 
-    z-index: 1000; 
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-}
-
-.navbar {
-    display: flex; 
-    align-items: center;
-    background-color: rgba(80, 80, 80, 0.5); 
-    border-radius: 50px; 
-    padding: 4px; 
-}
-
-.navbar a {
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    color: #e0e0e0; 
-    padding: 10px 22px; 
-    border-radius: 50px;
-    transition: all 0.3s ease-in-out; 
-    font-size: 15px;
-    font-weight: 500;
-    white-space: nowrap; 
-}
-
-/* State: HOVER (Berlaku untuk SEMUA link kecuali yg 'selected') */
-.navbar a:hover:not(.selected) {
-    background-color: #777777; 
-    color: #f0f0f0; 
-}
-
-/* === TATA LETAK UMUM (Mobile/Small Screens) === */
-@media (max-width: 768px) {
-    
-    html {
-        scroll-behavior: smooth; 
-    }
-
-    .page {
-        padding: 20px 20px;
-        min-height: 100vh;
-        height: auto; 
-    }
-
-    .small-title {
-        position: static;
-        text-align: left;
-        width: auto;
-        margin-bottom: 20px;
-        right: auto;
-        top: auto;
-    }
-
-    .title {
-        font-size: 20px;
-    }
-
-    /* --- Navbar (Diperkecil) --- */
-    .navbar a {
-        padding: 8px 15px; 
-        font-size: 13px; 
-    }
-
-    /* --- Halaman 1: Header (Portofolio) --- */
-    .header-page {
-        justify-content: flex-start;
-        padding-top: 40px; 
-        text-align: center;
-    }
-    
-    .profile-picture-header {
-        position: static;
-        margin: 0 auto 5px auto; 
-        width: 120px;
-        height: 120px;
-        border: 3px solid rgba(120, 120, 120, 0.8);
-        box-shadow: 0 0 0 6px rgba(80, 80, 80, 0.6);
-        top: auto;
-        left: auto;
-    }
-    
-    .header-content {
-        width: 100%;
-        margin-left: 0;
-        margin-bottom: 10px; 
-        padding-top: 0;
-        z-index: 1;
-        position: relative;
-    }
-
-    .header-content h1 {
-        font-size: 50px;
-    }
-
-    .header-image-placeholder {
-        width: 100%;
-        height: 20%; 
-        right: 0;
-        bottom: 0;
-        opacity: 0.3;
-    }
-
-
-    /* --- Halaman 2: Tentang Saya & Pengalaman (MOBILE) --- */
-    .about-page {
-        padding-top: 0; 
-    }
-    
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .about-text-container,
-    .experience-container {
-        width: 100%; 
-        margin: 25px 0;
-        padding-top: 15px; 
-    }
-    
-    /* Urutan mobile (Foto, Tentang Saya, Pengalaman) */
-    .about-text-container {
-        order: 2; 
-    }
-    
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-        margin: 15px 0;
-        order: 1; 
-    }
-    
-    .experience-container {
-        order: 3; 
-    }
-
-    .about-text-container .title,
-    .experience-container .title {
-        font-size: 30px;
-        text-align: center;
-    }
-    
-    .experience-container ul {
-        text-align: left; 
-        padding-left: 20px;
-    }
-
-    /* --- Halaman 3: Hasil Karya (Work) --- */
-    .works-page {
-        flex-direction: column; 
-        text-align: center;
-    }
-
-    .works-title-container {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 30px;
-        position: static;
-        padding-top: 0; 
-    }
-    
-    .works-title-container .title {
-        writing-mode: horizontal-tb;
-        transform: none;
-        font-size: 40px;
-        text-align: center;
-    }
-
-    .works-title-container .subtitle {
-        transform: none;
-        text-align: center;
-    }
-
-    .works-gallery {
-        width: 100%;
-        flex-wrap: wrap; 
-        justify-content: center;
-    }
-    
-    .work-item {
-        margin: 10px 0;
-        perspective: none; 
-        transform-style: flat;
-    }
-    
-    /* Modifikasi: Gambar Landscape untuk Mobile */
-    .work-item img {
-        width: 280px; 
-        height: 180px; 
-        max-width: 90%; 
-        object-fit: cover;
-        transform: none; 
-        box-shadow: none; 
-        border: none;
-    }
-    /* Matikan efek hover 3D untuk mobile */
-    .work-item img:hover {
-        transform: scale(1.03); 
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
-    }
-
-
-    /* --- Halaman 4: Terima Kasih (Contact) --- */
-    .thank-you-page {
-        justify-content: flex-start;
-        padding-top: 100px;
-    }
-
-    .thank-you-text {
-        font-size: 50px; 
-    }
-
-    .lets-work {
-        font-size: 20px;
-    }
-
-    .contact-info {
-        /* Memaksa item kontak menjadi tumpukan di mobile */
-        flex-direction: column; 
-        gap: 15px 0;
-    }
-
-    .contact-item a {
-        justify-content: center; 
-        width: 250px; /* Lebar tombol seragam di mobile */
-    }
-    
-    /* Hapus animasi dan warna hover spesifik untuk mobile */
-    .contact-item a:hover {
-        transform: none;
-        box-shadow: none;
-    }
-    .contact-item:nth-child(1) a:hover,
-    .contact-item:nth-child(2) a:hover,
-    .contact-item:nth-child(3) a:hover {
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.2);
-        background: none;
-    }
-    
-    /* Hilangkan scaling hover di mobile */
-    .contact-item .neon-icon {
-        transform: none;
-    }
-}
-/* --- style.css end --- */
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vino Daffa - Desain Portofolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar-container">
+        <div class="navbar">
+            <a href="#portofolio">Home</a> 
+            <a href="#tentang-saya">Profile</a> 
+            <a href="#poster">Project</a> 
+            <a href="#terimakasih">Contact</a> 
+        </div>
+    </nav>
+
+    <div class="portfolio-container">
+        <section class="page header-page" id="portofolio">
+            
+            <div class="profile-picture-header">
+                <img src="gambar/unnamed.jpg" alt="Foto Profil Vino Daffa"> 
+            </div>
+            
+            <div class="header-content">
+                <span class="small-title"></span>
+                <h1>PORTOFOLIO<br></h1>
+                <span class="name">Vino Daffa Dufantra </span>
+                <span class="job-title">Rekayasa Perangkat Lunak</span>
+            </div>
+            <div class="header-image-placeholder"></div>
+        </section>
+        
+        <section class="page about-page" id="tentang-saya">
+            <div class="about-content">
+                <div class="about-text-container">
+                    <h2 class="title">TENTANG SAYA</h2>
+                    <p class="name">Vino Daffa Dufantra</p>
+                    <p class="bio">Pelajar SMK jurusan Rekayasa Perangkat Lunak dengan fokus pada Web Development. Terampil menggunakan HTML, CSS, dan JavaScript. Dapat bekerja dalam tim, cepat mempelajari hal baru, dan memiliki motivasi tinggi untuk berkembang di bidang teknologi. </p>
+                </div>
+                <div class="profile-photo"></div> 
+                <div class="experience-container">
+                    <h2 class="title">PENGALAMAN</h2>
+                    <ul>
+                        <li><p class="exp-title">Web Design</p>
+                            <span class="exp-role">-Mendesain dan membangun website toko online.
+                            <br>- Menggunakan HTML, CSS, dan JavaScript untuk front-end development.
+                            <br>- Menerapkan layout responsive agar dapat di akses di berbagai perangkat
+                            </span>
+                        </li>
+                        <li><p class="exp-title">C.A.K.E - web resep</p>
+                            <span class="exp-role">Mendesign Web penjualan menggunakan CSS, HTML, dan JavaScript </span>
+                        </li>
+                        <li><p class="exp-title">Project sekolah</p>
+                            <span class="exp-role">- Membuat aplikasi Kalkulator sederhana
+                            <br>- Menggunakan HTML, CSS, fsn JavaScript untuk fitur interaktif
+                            <br>- Melatih logika pemrograman
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="page works-page" id="poster">
+            <div class="works-content">
+                <div class="works-title-container">
+                    <h2 class="title">HASIL KARYA</h2>
+                </div>
+                <div class="works-gallery">
+                    
+                    <div class="work-item">
+                        <a href="https://vinodaffadufantra.github.io/keripik/" target="_blank">
+                            <img src="gambar/kripik.png" alt="Toko Online Keripik">
+                        </a>
+                        <p>Toko Online Keripik</p> 
+                    </div>
+                    
+                    <div class="work-item">
+                        <a href="https://github.com/VinoDaffaDufantra/peminjaman-buku" target="_blank">
+                            <img src="gambar/expres.png" alt="typemaster">
+                        </a>
+                        <p>ExpresJS</p>
+                    </div>
+                    
+                    <div class="work-item">
+                        <a href="pdf/mongodb.pdf" target="_blank">
+                            <img src="gambar/mongodb.png" alt="mongoDB">
+                        </a>
+                        <p>MongoDB</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="page thank-you-page" id="terimakasih">
+            <div class="thank-you-content">
+                <span class="small-title">DESAIN PORTFOLIO</span>
+                <h1 class="thank-you-text">TERIMA KASIH</h1>
+                <p class="lets-work">Mari bekerjasama, hubungi saya:</p>
+                <div class="contact-info">
+                    
+                    <div class="contact-item">
+                        <a href="https://wa.me/6285236806979" target="_blank">
+                            <img src="gambar/wa.png" alt="WhatsApp Icon" class="neon-icon">
+                            <p>(+62) 0852-3680-6979</p>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <a href="https://instagram.com/artaarv" target="_blank">
+                            <img src="gambar/instagram.png" alt="Instagram Icon" class="neon-icon">
+                            <p>@artaarv</p>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <a href="mailto:01vinodaffa@gmail.com">
+                            <img src="gambar/email.png" alt="Email Icon" class="neon-icon">
+                            <p>01vinodaffa@gmail.com</p>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
