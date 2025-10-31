@@ -419,21 +419,35 @@ body {
 
     /* --- Halaman 1: Header (Portofolio) --- */
     .header-page {
-        padding-top: 130px; 
+        /* Mengubah header agar elemen-elemennya di-center secara horizontal */
+        justify-content: flex-start;
+        padding-top: 100px; /* Sesuaikan padding atas */
+        text-align: center; /* Teks di tengah */
     }
     
     .profile-picture-header {
-        top: 50px;
-        left: 20px;
-        width: 100px;
-        height: 100px;
+        /* FOTO PROFIL DI TENGAH (Perubahan utama) */
+        position: static; /* Hilangkan posisi absolut */
+        margin: 0 auto 30px auto; /* Pusat horizontal dan beri jarak bawah */
+        
+        /* Ukuran dan styling tetap */
+        width: 120px; /* Diperbesar sedikit */
+        height: 120px; /* Diperbesar sedikit */
         border: 3px solid rgba(120, 120, 120, 0.8);
         box-shadow: 0 0 0 6px rgba(80, 80, 80, 0.6);
+        
+        /* Hapus properti posisi lama */
+        top: auto;
+        left: auto;
     }
     
     .header-content {
-        margin-left: 120px;
-        padding-top: 20px;
+        /* Konten header (teks) diposisikan di tengah */
+        width: 100%;
+        margin-left: 0; /* Hapus margin-left yang dibuat untuk desktop */
+        padding-top: 0;
+        z-index: 1;
+        position: relative;
     }
 
     .header-content h1 {
