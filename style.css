@@ -86,15 +86,11 @@ body {
 
 .profile-picture-header {
     position: relative; 
-    top: auto; 
-    left: auto; 
     width: 160px; 
     height: 160px; 
     border-radius: 50%; 
     z-index: 2; 
     margin-bottom: 30px; 
-    border: none;
-    box-shadow: none;
     
     mask-image: radial-gradient(circle, white 90%, transparent 100%);
     -webkit-mask-image: radial-gradient(circle, white 90%, transparent 100%);
@@ -218,8 +214,6 @@ body {
     z-index: 1;
     position: relative;
     margin-bottom: 50px;
-    margin-left: 0; 
-    padding-top: 0; 
 }
 
 .header-content h1 {
@@ -330,40 +324,36 @@ body {
 
 .works-page {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
     justify-content: center; 
     align-items: center;
-    text-align: left;
+    text-align: left; 
     padding: 50px 80px;
 }
 
 .works-title-container {
-    width: auto;
+    width: auto; 
     margin-right: 20px; 
     position: relative;
     padding-top: 50px; 
 }
 
 .works-title-container .title {
-    writing-mode: vertical-lr;
+    writing-mode: vertical-lr; 
     font-size: 48px;
     margin-bottom: 10px;
-    transform: rotate(180deg);
+    transform: rotate(180deg); 
 }
 
 .works-title-container .subtitle {
-    display: block;
-    margin-top: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    transform: rotate(180deg);
+    display: none !important;
 }
 
 .works-gallery {
     display: flex;
     gap: 20px;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
     width: auto; 
 }
 
@@ -405,6 +395,7 @@ body {
     font-size: 14px;
     text-align: center;
     font-weight: 500;
+    white-space: normal; 
 }
 
 .thank-you-page {
@@ -454,6 +445,19 @@ body {
     max-width: 300px; 
 }
 
+
+@keyframes float-animation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 .contact-item a {
     display: flex;
     align-items: center;
@@ -464,10 +468,27 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease; 
     width: 100%; 
+ 
+    animation: float-animation 3s ease-in-out infinite; 
+    animation-delay: var(--float-delay, 0s); 
+    will-change: transform; 
+}
+
+.contact-item:nth-child(1) a {
+    --float-delay: 0s; 
+}
+
+.contact-item:nth-child(2) a {
+    --float-delay: 0.5s;
+}
+
+.contact-item:nth-child(3) a {
+    --float-delay: 1s; 
 }
 
 .contact-item a:hover {
-    transform: translateY(-3px) scale(1.02); 
+    transform: scale(1.02); 
+    animation: none; 
 }
 
 .neon-icon {
@@ -549,7 +570,6 @@ body {
     color: #e0e0e0; 
     padding: 10px 22px; 
     border-radius: 50px;
-    /* Efek transisi tombol navbar */
     transition: all 0.4s ease-in-out, box-shadow 0.2s ease-out; 
     font-size: 15px;
     font-weight: 500;
@@ -557,7 +577,6 @@ body {
     position: relative; 
 }
 
-/* 💡 Gaya Tombol Aktif (.selected) - Ditambahkan oleh JavaScript */
 .navbar a.selected {
     background-color: #f0f0f0; 
     color: #0d0d0d; 
@@ -565,10 +584,9 @@ body {
         0 0 10px rgba(255, 255, 255, 0.4), 
         inset 0 0 5px rgba(0, 0, 0, 0.3), 
         0 2px 5px rgba(0, 0, 0, 0.5); 
-    pointer-events: none; /* Menonaktifkan hover pada tombol yang aktif */
+    pointer-events: none; 
 }
 
-/* Gaya Hover pada Tombol yang TIDAK Aktif */
 .navbar a:hover { 
     background-color: #666666; 
     color: #f0f0f0; 
@@ -579,13 +597,8 @@ body {
 }
 
 
-/* === MEDIA QUERIES (Mobile/Small Screens) === */
 @media (max-width: 768px) {
     
-    html {
-        scroll-behavior: smooth; 
-    }
-
     .page {
         padding: 20px 20px;
         min-height: 100vh;
@@ -597,8 +610,6 @@ body {
         text-align: left;
         width: auto;
         margin-bottom: 20px;
-        right: auto;
-        top: auto;
     }
 
     .title {
@@ -615,32 +626,81 @@ body {
         padding-top: 40px; 
         text-align: center;
     }
-    
-    /* 📱 Aturan untuk Mobile: Matikan animasi running border */
+
     .profile-picture-header {
-        position: static;
+        position: relative; 
         margin: 0 auto 5px auto; 
         width: 120px;
         height: 120px;
-        top: auto;
-        left: auto;
-        
-        /* Reset styling border non-animated */
-        border: 3px solid rgba(120, 120, 120, 0.8);
-        box-shadow: 0 0 0 6px rgba(80, 80, 80, 0.6);
+
         animation: none;
-        mask-image: none;
-        -webkit-mask-image: none;
+        mask-image: radial-gradient(circle, white 90%, transparent 100%);
+        -webkit-mask-image: radial-gradient(circle, white 90%, transparent 100%);
         padding: 0; 
+
+        border: none;
+        box-shadow: none;
     }
     
-    .profile-picture-header::before,
-    .profile-picture-header::after {
-        content: none; 
+    .profile-picture-header::before {
+        content: '';
+        position: absolute;
+        top: -10px; 
+        left: -10px; 
+        right: -10px;
+        bottom: -10px;
+        z-index: -1; 
+        background: conic-gradient(
+            transparent 0deg, 
+            transparent 25deg, 
+            var(--glow-color) 35deg, 
+            rgba(255, 255, 255, 0.7) 45deg, 
+            transparent 55deg, 
+            transparent 360deg
+        );
+        border-radius: 50%;
+        animation: rotate-glow 3s linear infinite, 
+                   color-change 6s ease-in-out infinite alternate; 
+        filter: drop-shadow(0 0 10px var(--glow-shadow-color)); 
+        --glow-color: #FFFFFF; 
+        --glow-shadow-color: rgba(255, 255, 255, 0.8);
     }
     
     .profile-picture-header .glow-reverse {
-        display: none; /* Sembunyikan elemen baru di mobile */
+        display: block; 
+        position: absolute;
+        top: -10px; 
+        left: -10px; 
+        right: -10px;
+        bottom: -10px;
+        z-index: -1; 
+        background: conic-gradient(
+            transparent 0deg, 
+            transparent 200deg, 
+            var(--glow-color-reverse) 210deg, 
+            rgba(255, 255, 255, 0.7) 220deg, 
+            transparent 230deg, 
+            transparent 360deg
+        );
+        border-radius: 50%;
+        animation: rotate-glow-reverse 3s linear infinite, 
+                   color-change-reverse 6s ease-in-out infinite alternate; 
+        filter: drop-shadow(0 0 10px var(--glow-shadow-color-reverse)); 
+        --glow-color-reverse: #FFFFFF; 
+        --glow-shadow-color-reverse: rgba(255, 255, 255, 0.8);
+    }
+
+    .profile-picture-header::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        border: 5px solid rgba(80, 80, 80, 0.6);
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8); 
+        z-index: 0; 
     }
 
     .profile-picture-header img {
@@ -651,9 +711,7 @@ body {
     
     .header-content {
         width: 100%;
-        margin-left: 0;
         margin-bottom: 10px; 
-        padding-top: 0;
         z-index: 1;
         position: relative;
     }
@@ -734,8 +792,7 @@ body {
     }
 
     .works-title-container .subtitle {
-        transform: none;
-        text-align: center;
+        display: none !important;
     }
 
     .works-gallery {
@@ -745,23 +802,29 @@ body {
     }
     
     .work-item {
-        margin: 10px 0;
+        width: 100%; 
+        max-width: 300px; 
+        margin: 15px auto; 
         perspective: none; 
         transform-style: flat;
     }
     
     .work-item img {
-        width: 280px; 
-        height: 180px; 
-        max-width: 90%; 
+        width: 100%; 
+        height: auto; 
+        max-width: 100%; 
         object-fit: cover;
         transform: none; 
-        box-shadow: none; 
-        border: none;
     }
     .work-item img:hover {
         transform: scale(1.03); 
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
+    }
+
+    .work-item p {
+        white-space: normal; 
+        word-break: break-word; 
+        padding: 0 5px; 
     }
 
     .thank-you-page {
@@ -785,21 +848,49 @@ body {
     .contact-item a {
         justify-content: center; 
         width: 250px; 
+
+        animation: float-animation 3s ease-in-out infinite; 
+        animation-delay: var(--float-delay, 0s); 
     }
     
     .contact-item a:hover {
-        transform: none;
-        box-shadow: none;
+        transform: scale(1.02); 
+        animation: none; 
     }
-    .contact-item:nth-child(1) a:hover,
-    .contact-item:nth-child(2) a:hover,
-    .contact-item:nth-child(3) a:hover {
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.2);
-        background: none;
+
+    .contact-item:nth-child(1) a:hover {
+        color: #25D366; 
+        border-color: #25D366;
+        background-color: rgba(37, 211, 102, 0.1); 
+        box-shadow: 0 0 10px 3px rgba(37, 211, 102, 0.5),
+                    0 0 20px 5px rgba(37, 211, 102, 0.3);
+    }
+
+    .contact-item:nth-child(1) a:hover .neon-icon {
+        transform: scale(1.1);
     }
     
-    .contact-item .neon-icon {
-        transform: none;
+    .contact-item:nth-child(2) a:hover {
+        color: #C13584; 
+        border-color: #C13584;
+        background: linear-gradient(45deg, rgba(253, 29, 29, 0.1), rgba(193, 53, 132, 0.1));
+        box-shadow: 0 0 10px 3px rgba(225, 48, 108, 0.5), 
+                    0 0 20px 5px rgba(225, 48, 108, 0.3);
+    }
+
+    .contact-item:nth-child(2) a:hover .neon-icon {
+        transform: scale(1.1);
+    }
+    
+    .contact-item:nth-child(3) a:hover {
+        color: #0078D4; 
+        border-color: #0078D4;
+        background-color: rgba(0, 120, 212, 0.1); 
+        box-shadow: 0 0 10px 3px rgba(0, 120, 212, 0.5), 
+                    0 0 20px 5px rgba(0, 120, 212, 0.3); 
+    }
+
+    .contact-item:nth-child(3) a:hover .neon-icon {
+        transform: scale(1.1);
     }
 }
